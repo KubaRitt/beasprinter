@@ -4,12 +4,16 @@
   const menu = document.getElementById('menu');
   const setMenu = (open) => {
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.textContent = open ? 'Zavřít' : 'Menu';
+    toggle.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
     menu.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
   };
   toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
   menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', (e) => {
+    if (menu.classList.contains('is-open') && !e.target.closest('.nav')) setMenu(false);
+  });
 
   /* Copy student code */
   document.querySelectorAll('[data-copy]').forEach((btn) => {
