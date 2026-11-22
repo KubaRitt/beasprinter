@@ -126,6 +126,7 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
   letter-spacing: .04em;
   text-decoration: none;
 }
+.brand img { height: var(--s8); width: auto; }
 .nav__links { display: flex; gap: var(--s6); margin-left: auto; }
 .nav__links a { color: var(--text-72); text-decoration: none; transition: color .3s ease; }
 .nav__links a:hover { color: var(--text); }
