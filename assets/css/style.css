@@ -510,6 +510,45 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
   .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
 }
 
+/* ---------- Legal documents ---------- */
+.doc { padding: calc(var(--nav-h) + var(--s16)) 0 var(--s24); }
+.doc__grid { display: grid; gap: var(--s10); }
+.doc__back { color: var(--text-72); text-decoration: none; font-size: 14px; }
+.doc__back:hover { color: var(--text); }
+.doc__switch { display: flex; gap: var(--s2); margin-top: var(--s6); flex-wrap: wrap; }
+.doc__switch a {
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--text-72);
+}
+.doc__switch a[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.doc__toc { display: none; }
+.doc__toc a { display: block; padding: var(--s1) 0 var(--s1) var(--s3); border-left: 1px solid var(--line); font-size: 14px; line-height: 20px; color: var(--text-72); text-decoration: none; transition: color .3s ease, border-color .3s ease; }
+.doc__toc a:hover { color: var(--text); }
+.doc__toc a.is-active { color: var(--text); border-left-color: var(--ink); }
+.doc__head { padding-bottom: var(--s8); border-bottom: 1px solid var(--line); }
+.doc__head h1 { font-size: 40px; line-height: 48px; }
+.doc__meta { margin-top: var(--s3); color: var(--text-72); }
+.doc__body { max-width: 720px; }
+.doc__body section { padding-top: var(--s10); scroll-margin-top: calc(var(--nav-h) + var(--s6)); }
+.doc__body h2 { font-size: 24px; line-height: 32px; }
+.doc__body h3 { margin-top: var(--s6); font-size: 18px; line-height: 28px; }
+.doc__body p, .doc__body li { margin-top: var(--s3); color: var(--text-72); font-size: 17px; line-height: 28px; }
+.doc__body ol, .doc__body ul { padding-left: var(--s6); }
+.doc__body ul { list-style: disc; }
+.doc__body ol { list-style: decimal; }
+.doc__body a { color: var(--text); text-underline-offset: 4px; }
+.doc-page .footer { padding-top: var(--s4); }
+@media (min-width: 1024px) {
+  .doc__grid { grid-template-columns: 3fr 9fr; gap: var(--s16); align-items: start; }
+  .doc__aside { position: sticky; top: calc(var(--nav-h) + var(--s8)); }
+  .doc__toc { display: grid; gap: var(--s1); margin-top: var(--s8); list-style: none; padding: 0; }
+  .doc__head h1 { font-size: 56px; line-height: 64px; }
+}
+
 /* ---------- Phone optimisation ---------- */
 @media (max-width: 767px) {
   h2 { font-size: 28px; line-height: 36px; }

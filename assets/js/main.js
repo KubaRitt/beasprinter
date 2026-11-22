@@ -25,6 +25,30 @@
     });
   });
 
+  /* Legal pages: build the table of contents from section headings */
+  const toc = document.querySelector('[data-toc]');
+  if (toc) {
+    const sections = [...document.querySelectorAll('.doc__body section')];
+    sections.forEach((sec, i) => {
+      if (!sec.id) sec.id = `s${i + 1}`;
+      const h = sec.querySelector('h2');
+      if (!h) return;
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#${sec.id}">${h.textContent}</a>`;
+      toc.appendChild(li);
+    });
+    if ('IntersectionObserver' in window) {
+      const links = [...toc.querySelectorAll('a')];
+      const tio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${e.target.id}`));
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach((s) => tio.observe(s));
+    }
+  }
+
   /* Stagger index for grouped reveals */
   document.querySelectorAll('[data-stagger]').forEach((group) => {
     [...group.children].forEach((child, i) => child.style.setProperty('--i', i));
