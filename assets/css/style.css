@@ -299,6 +299,9 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
 .tile__text { padding: var(--s6); }
 .tile h3 { font-size: 20px; line-height: 28px; font-weight: 500; letter-spacing: -.01em; }
 .tile p { margin-top: var(--s2); color: var(--text-72); max-width: 360px; }
+.tile__link { margin-top: var(--s4); color: var(--text); }
+.tile__links { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); margin-top: var(--s4); }
+.tile__links .link { color: var(--text); }
 .tile--hero h3 { font-size: 32px; line-height: 40px; }
 .tile--hero { min-height: 440px; }
 
@@ -593,11 +596,17 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);
     overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--gutter);
     scrollbar-width: none;
+    align-items: stretch;
   }
   .bento::-webkit-scrollbar { display: none; }
+  /* tiles slide in sideways instead of up, so nothing pokes out vertically */
+  .js .bento .reveal { transform: translateX(var(--s8)); }
+  .js .bento .reveal.is-in { transform: none; }
   .tile, .tile--hero { flex: 0 0 84%; min-height: 400px; scroll-snap-align: start; }
   .tile--hero h3 { font-size: 24px; line-height: 32px; }
 
@@ -635,11 +644,15 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);
     overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--gutter);
     scrollbar-width: none;
   }
   .ab__media::-webkit-scrollbar { display: none; }
+  .js .ab__media .reveal { transform: translateX(var(--s8)); }
+  .js .ab__media .reveal.is-in { transform: none; }
   .ab__media .tile { flex: 0 0 84%; min-height: 340px; scroll-snap-align: start; }
   .ab__clubs { flex-direction: column; align-items: flex-start; }
   .voucher__price strong { font-size: 32px; line-height: 40px; }
