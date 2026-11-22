@@ -135,11 +135,11 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
   position: relative;
   width: var(--s10);
   height: var(--s10);
-  margin-right: calc(var(--s2) * -1);
   padding: 0;
   border: 0;
-  background: transparent;
-  color: var(--text);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -263,6 +263,7 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
 .ab .tile { min-height: 360px; }
 .ab__clubs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s6); }
 .ab__clubs ul { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.ab__media { display: contents; }
 .ab__clubs li { padding: var(--s2) var(--s3); border: 1px solid var(--line); border-radius: var(--radius); font-weight: 500; background: var(--paper); }
 .voucher__photo.voucher__photo--card { aspect-ratio: auto; border-radius: var(--radius-lg); }
 .voucher__photo.voucher__photo--card img { height: auto; object-fit: contain; }
@@ -614,8 +615,33 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
   .faq summary { font-size: 16px; line-height: 24px; padding: var(--s4) 0; }
 
   .voucher { gap: var(--s8); }
-  .ab .tile { min-height: 320px; }
+  /* about: compact phone layout */
+  .ab { gap: var(--s2); }
+  .ab__photo { aspect-ratio: 4 / 3; }
+  .ab__photo img { object-position: 50% 12%; }
+  .ab__card { padding: var(--s5); }
+  .ab__intro h2 { font-size: 28px; line-height: 36px; }
+  .ab__lead { margin-top: var(--s2); font-size: 20px; line-height: 28px; }
+  .ab__intro p:not(.ab__lead) { font-size: 15px; line-height: 22px; }
+  .ab__facts { gap: var(--s2); }
+  .ab__facts .ab__card { padding: var(--s4); }
   .ab__facts dt { font-size: 20px; line-height: 28px; }
+  .ab__facts dd { font-size: 13px; line-height: 18px; }
+  .ab__wins li { padding: var(--s2) 0; }
+  /* lecture + podcast: swipe row */
+  .ab__media {
+    display: flex;
+    gap: var(--s2);
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .ab__media::-webkit-scrollbar { display: none; }
+  .ab__media .tile { flex: 0 0 84%; min-height: 340px; scroll-snap-align: start; }
+  .ab__clubs { flex-direction: column; align-items: flex-start; }
   .voucher__price strong { font-size: 32px; line-height: 40px; }
 
   .window--cta { min-height: 56vh; }
