@@ -542,6 +542,19 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
 .doc__body ol { list-style: decimal; }
 .doc__body a { color: var(--text); text-underline-offset: 4px; }
 .doc-page .footer { padding-top: var(--s4); }
+.doc__no { display: inline-block; min-width: var(--s10); color: var(--text); font-weight: 600; font-feature-settings: "tnum" 1; }
+.doc__body strong { color: var(--text); font-weight: 600; }
+.doc__form { margin-top: var(--s12); padding: var(--s8) var(--s6); border-radius: var(--radius-lg); background: var(--alt); }
+.doc__form h2 { font-size: 20px; line-height: 28px; }
+.doc__fields { margin-top: var(--s6); }
+.doc__fields div { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
+.doc__fields dt { font-size: 14px; line-height: 20px; color: var(--text-72); }
+.doc__fields dd { color: var(--text); }
+.doc__fields dd.blank { height: var(--s6); border-bottom: 1px dashed var(--line); }
+@media print {
+  .nav, .doc__aside, .footer { display: none; }
+  .doc { padding: 0; }
+}
 @media (min-width: 1024px) {
   .doc__grid { grid-template-columns: 3fr 9fr; gap: var(--s16); align-items: start; }
   .doc__aside { position: sticky; top: calc(var(--nav-h) + var(--s8)); }
