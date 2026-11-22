@@ -244,11 +244,25 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
 @keyframes drift { to { transform: translateX(calc(-50% - var(--s3) / 2)); } }
 
 /* ---------- About ---------- */
-.about__grid { display: grid; gap: var(--s10); align-items: center; }
-.about__photo { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5; }
-.about__photo img { width: 100%; height: 100%; object-fit: cover; }
-.about__lead { margin-top: var(--s5); font-size: 24px; line-height: 32px; font-weight: 500; letter-spacing: -.015em; max-width: 520px; }
-.about__text > p:not(.about__lead) { margin-top: var(--s4); max-width: 520px; font-size: 18px; line-height: 28px; color: var(--text-72); }
+.about__grid { display: grid; gap: var(--s8); align-items: start; }
+.about__lead { margin-top: var(--s5); font-size: 24px; line-height: 32px; font-weight: 500; letter-spacing: -.015em; max-width: 440px; }
+.about__intro > p:not(.about__lead) { margin-top: var(--s4); max-width: 440px; font-size: 18px; line-height: 28px; color: var(--text-72); }
+.about__photo { margin-top: var(--s8); max-width: 320px; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 5; }
+.about__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s8) var(--s6); }
+.facts div { padding-top: var(--s4); border-top: 1px solid var(--ink); }
+.facts dt { font-size: 28px; line-height: 36px; font-weight: 500; letter-spacing: -.02em; }
+.facts dd { margin-top: var(--s1); color: var(--text-72); }
+.wins { margin-top: var(--s10); }
+.wins h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
+.wins ul { margin-top: var(--s3); border-top: 1px solid var(--line); }
+.wins li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--s1) var(--s4); padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
+.wins strong { font-weight: 500; }
+.wins span { color: var(--text-72); font-size: 15px; font-feature-settings: "tnum" 1; }
+.clubs { margin-top: var(--s10); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.clubs h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
+.clubs ul { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.clubs li { padding: var(--s2) var(--s3); border: 1px solid var(--line); border-radius: var(--radius); font-weight: 500; }
 .about__cards { display: grid; gap: var(--s3); margin-top: var(--s12); }
 .about__cards .tile { min-height: 400px; }
 .tile__link { margin-top: var(--s4); color: var(--text); }
@@ -468,8 +482,14 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
   h1 { font-size: 88px; line-height: 88px; }
   .hero { padding-bottom: var(--s20); }
   .product__grid { grid-template-columns: 5fr 7fr; gap: var(--s16); }
-  .about__grid { grid-template-columns: 5fr 7fr; gap: var(--s16); }
-  .about__lead { font-size: 32px; line-height: 40px; }
+  /* text | portrait | facts */
+  .about__grid { grid-template-columns: 4fr 3fr 5fr; gap: 0 var(--s12); }
+  .about__intro { display: contents; }
+  .about__intro > :not(.about__photo) { grid-column: 1; }
+  .about__photo { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; max-width: none; }
+  .about__facts { grid-column: 3; grid-row: 1 / span 4; }
+  .about__lead { font-size: 28px; line-height: 36px; }
+  .facts dt { font-size: 32px; line-height: 40px; }
   .about__cards .tile { min-height: 480px; }
   .bento { grid-template-columns: repeat(3, 1fr); }
   .tile--hero { grid-column: 1 / span 2; grid-row: 1 / span 2; }
@@ -590,8 +610,9 @@ h3 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.01e
   .faq summary { font-size: 16px; line-height: 24px; padding: var(--s4) 0; }
 
   .voucher { gap: var(--s8); }
-  .about__photo { aspect-ratio: 4 / 3; }
-  .about__photo img { object-position: 50% 60%; }
+  .about__photo { max-width: 240px; }
+  .facts { gap: var(--s6) var(--s4); }
+  .facts dt { font-size: 22px; line-height: 28px; }
   .about__cards { margin-top: var(--s8); }
   .about__cards .tile { min-height: 320px; }
   .voucher__price strong { font-size: 32px; line-height: 40px; }
